@@ -1,0 +1,271 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RakshakAI - Compliance Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&amp;family=Forum&amp;family=Oswald:wght@200..700&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="/tailwind-config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" crossorigin href="/assets/global-CVBCfwqe.css">
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex">
+<!-- SideNavBar Component (Shared Anchor) -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 flex flex-col py-4 bg-inverse-surface dark:bg-surface-container-lowest shadow-sm">
+<div class="px-6 mb-8">
+<h1 class="font-headline text-xl text-secondary-fixed dark:text-secondary">RakshakAI</h1>
+<p class="font-body text-body-md tracking-wide text-surface-variant/70">Regulatory Intelligence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active: Home (Since we are on the Dashboard) -->
+<a class="flex items-center px-4 py-2 bg-secondary text-on-secondary rounded-lg mx-2 my-1 font-body text-body-md tracking-wide transition-transform scale-95 active:scale-90" href="home.html">
+<span class="material-symbols-outlined mr-3" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center px-4 py-2 text-surface-variant hover:text-white mx-2 my-1 font-body text-body-md tracking-wide transition-transform hover:bg-on-surface-variant/10" href="regulations.html">
+<span class="material-symbols-outlined mr-3" data-icon="gavel">gavel</span>
+<span>Regulations</span>
+</a>
+<a class="flex items-center px-4 py-2 text-surface-variant hover:text-white mx-2 my-1 font-body text-body-md tracking-wide transition-transform hover:bg-on-surface-variant/10" href="dashboard.html">
+<span class="material-symbols-outlined mr-3" data-icon="map">map</span>
+<span>MAPs</span>
+</a>
+<a class="flex items-center px-4 py-2 text-surface-variant hover:text-white mx-2 my-1 font-body text-body-md tracking-wide transition-transform hover:bg-on-surface-variant/10" href="kanban.html">
+<span class="material-symbols-outlined mr-3" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center px-4 py-2 text-surface-variant hover:text-white mx-2 my-1 font-body text-body-md tracking-wide transition-transform hover:bg-on-surface-variant/10" href="audit_log.html">
+<span class="material-symbols-outlined mr-3" data-icon="history">history</span>
+<span>Audit Log</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-secondary text-on-secondary py-3 rounded-lg font-label uppercase tracking-widest text-sm hover:opacity-90 transition-all">
+                New Assessment
+            </button>
+</div>
+<footer class="border-t border-on-surface-variant/20 pt-4">
+<a class="flex items-center px-4 py-2 text-surface-variant hover:text-white mx-2 my-1 font-body text-body-md tracking-wide transition-transform hover:bg-on-surface-variant/10" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center px-4 py-2 text-surface-variant hover:text-white mx-2 my-1 font-body text-body-md tracking-wide transition-transform hover:bg-on-surface-variant/10" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="help">help</span>
+<span>Support</span>
+</a>
+</footer>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 p-8 min-h-screen bg-surface">
+<!-- Header -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-display text-4xl text-primary mb-2 tracking-tight">Compliance Dashboard</h2>
+<div class="h-1 w-24 bg-secondary-container"></div>
+</div>
+<div class="flex items-center space-x-4">
+<span class="font-label text-on-surface-variant text-sm tracking-widest">LAST UPDATED: OCT 24, 2023</span>
+<div class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional portrait of a senior financial executive in a modern office. The lighting is soft and cinematic, highlighting the intellectual and calm mood of the space. The aesthetic is high-end digital publication style, with a palette of warm creams and soft grays, matching an ethereal serif design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu0w5PYS4jQRYX_sSNAEu2p2WKAjaolFrKtL-TdVif0vvhbGWI6jazJ3nV4t4snjFxygST1_xAfjljTzYBXf9VMvATDb74C6N8TfUxb3W-HOr603-exWsXRRcsy9PshPG0IqC2evpuaDE8wOB8lwWNV5mRoT53gzVzhDYgy6LIQ_Oa_783EVXC70ar_61mK8q3NE--kXITA9q9CVImcwUBxarkzoDVkrdIjBxVSmlqye28SGWEekhmIfiaGqwUpazwPi1UX4ZKnMjo">
+</div>
+</div>
+</header>
+<!-- Stat Chips (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1">
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2">Total Regulations</p>
+<h3 class="font-headline text-3xl text-primary">128</h3>
+<div class="mt-4 flex items-center text-xs text-secondary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="trending_up">trending_up</span>
+<span>12% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1">
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2">Active MAPs</p>
+<h3 class="font-headline text-3xl text-primary">43</h3>
+<div class="mt-4 flex items-center text-xs text-primary">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="sync">sync</span>
+<span>8 processing now</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1">
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2">Departments Covered</p>
+<h3 class="font-headline text-3xl text-primary">6</h3>
+<div class="mt-4 flex items-center text-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm mr-1" data-icon="domain">domain</span>
+<span>Global scope</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-6 rounded-lg transition-all hover:shadow-lg hover:-translate-y-1">
+<p class="font-label text-xs text-on-surface-variant uppercase tracking-widest mb-2">Compliance Score</p>
+<h3 class="font-headline text-3xl text-secondary">87%</h3>
+<div class="mt-4 w-full bg-surface-variant h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 87%"></div>
+</div>
+</div>
+</div>
+<!-- Main Split Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-10 gap-8">
+<!-- Left: Regulations Table (60%) -->
+<div class="lg:col-span-6 bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<h4 class="font-headline text-xl text-primary">Recent Regulations</h4>
+<button class="text-secondary font-label text-xs tracking-widest uppercase flex items-center hover:underline">
+                        View Archive <span class="material-symbols-outlined text-sm ml-1" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">
+<th class="px-6 py-4">ID</th>
+<th class="px-6 py-4">Source</th>
+<th class="px-6 py-4">Date</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Department</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body text-sm">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 font-label text-xs">REG-2023-01</td>
+<td class="px-6 py-4 font-headline text-base">RBI</td>
+<td class="px-6 py-4 text-on-surface-variant">22 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label text-[10px] uppercase tracking-wider">Under Review</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Banking Ops</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 font-label text-xs">REG-2023-04</td>
+<td class="px-6 py-4 font-headline text-base">SEBI</td>
+<td class="px-6 py-4 text-on-surface-variant">19 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label text-[10px] uppercase tracking-wider">Active</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Compliance</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 font-label text-xs">REG-2023-09</td>
+<td class="px-6 py-4 font-headline text-base">FATF</td>
+<td class="px-6 py-4 text-on-surface-variant">15 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-error/10 text-error font-label text-[10px] uppercase tracking-wider">Urgent Action</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Risk Mgmt</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-6 py-4 font-label text-xs">REG-2023-12</td>
+<td class="px-6 py-4 font-headline text-base">Basel III</td>
+<td class="px-6 py-4 text-on-surface-variant">12 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-label text-[10px] uppercase tracking-wider">Active</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Treasury</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group border-b-0">
+<td class="px-6 py-4 font-label text-xs">REG-2023-15</td>
+<td class="px-6 py-4 font-headline text-base">RBI</td>
+<td class="px-6 py-4 text-on-surface-variant">10 Oct 2023</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label text-[10px] uppercase tracking-wider">Drafting</span>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">Lending</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-6 bg-surface-container-low mt-auto border-t border-outline-variant">
+<p class="font-body italic text-sm text-on-surface-variant">Totaling 128 regulatory updates synchronized across global jurisdictions.</p>
+</div>
+</div>
+<!-- Right: Donut Chart & Agent Status (40%) -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Compliance Score Donut -->
+<div class="bg-surface-container-lowest border border-outline-variant p-8 rounded-xl flex flex-col items-center">
+<h4 class="font-headline text-xl text-primary mb-8 w-full text-left">Compliance Health</h4>
+<div class="relative w-48 h-48 mb-6">
+<!-- Simple SVG Donut -->
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#e1e1ee" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="transparent" r="40" stroke="#8e4e1c" stroke-dasharray="251.2" stroke-dashoffset="32.6" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display text-4xl text-primary">87%</span>
+<span class="font-label text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Target: 95%</span>
+</div>
+</div>
+<p class="text-center font-body text-on-surface-variant text-sm">
+                        Overall compliance score has increased by <strong>4%</strong> since last audit cycle.
+                    </p>
+</div>
+<!-- Agent Status Cards -->
+<div class="space-y-4">
+<div class="flex justify-between items-center px-2">
+<h4 class="font-headline text-xl text-primary">Active Intelligence Agents</h4>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="settings">settings</span>
+</div>
+<!-- Agent 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-2 h-2 rounded-full bg-secondary mr-4 animate-pulse"></div>
+<div>
+<h5 class="font-headline text-sm text-primary">Agent 1: Regulation Ingester</h5>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Running • Last: 2m ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="bolt">bolt</span>
+</div>
+<!-- Agent 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex items-center justify-between opacity-80">
+<div class="flex items-center">
+<div class="w-2 h-2 rounded-full bg-outline-variant mr-4"></div>
+<div>
+<h5 class="font-headline text-sm text-primary">Agent 2: Risk Mapper</h5>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Idle • Last: 14m ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="snooze">snooze</span>
+</div>
+<!-- Agent 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-2 h-2 rounded-full bg-secondary mr-4 animate-pulse"></div>
+<div>
+<h5 class="font-headline text-sm text-primary">Agent 3: Policy Auditor</h5>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Running • Last: 1m ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="bolt">bolt</span>
+</div>
+<!-- Agent 4 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center">
+<div class="w-2 h-2 rounded-full bg-secondary mr-4 animate-pulse"></div>
+<div>
+<h5 class="font-headline text-sm text-primary">Agent 4: Reporting Sync</h5>
+<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Running • Last: Just now</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="bolt">bolt</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Atmospheric Element (Subtle Gradient) -->
+<div class="fixed top-0 right-0 -z-10 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none"></div>
+</main>
+<script>
+        // Micro-interaction for table rows
+        document.querySelectorAll('tbody tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.transform = 'translateX(4px)';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.transform = 'translateX(0)';
+            });
+            row.style.transition = 'transform 0.3s ease';
+        });
+    </script>
+</body></html>

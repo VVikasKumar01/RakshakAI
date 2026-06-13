@@ -1,0 +1,440 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Audit Log - RakshakAI</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&amp;family=Forum&amp;family=Oswald:wght@200..700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caudex:wght@100..900&amp;family=Forum:wght@100..900&amp;family=Oswald:wght@100..900&amp;display=swap" rel="stylesheet">
+<script src="/tailwind-config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" crossorigin href="/assets/global-CVBCfwqe.css">
+</head>
+<body class="bg-background text-on-background min-h-screen flex">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-inverse-surface dark:bg-surface-container-lowest flex flex-col h-full py-4 shadow-sm">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined">shield_person</span>
+</div>
+<div>
+<h2 class="font-headline text-xl text-secondary-fixed dark:text-secondary leading-none">RakshakAI</h2>
+<p class="text-[10px] uppercase tracking-[0.2em] opacity-70 text-surface-variant">Regulatory Intelligence</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center px-6 py-3 text-surface-variant hover:text-white mx-2 my-1 group transition-transform scale-95 active:scale-90" href="home.html">
+<span class="material-symbols-outlined mr-3">home</span>
+<span class="font-body text-body-md tracking-wide">Home</span>
+</a>
+<a class="flex items-center px-6 py-3 text-surface-variant hover:text-white mx-2 my-1 group transition-transform scale-95 active:scale-90" href="regulations.html">
+<span class="material-symbols-outlined mr-3">gavel</span>
+<span class="font-body text-body-md tracking-wide">Regulations</span>
+</a>
+<a class="flex items-center px-6 py-3 text-surface-variant hover:text-white mx-2 my-1 group transition-transform scale-95 active:scale-90" href="dashboard.html">
+<span class="material-symbols-outlined mr-3">map</span>
+<span class="font-body text-body-md tracking-wide">MAPs</span>
+</a>
+<a class="flex items-center px-6 py-3 text-surface-variant hover:text-white mx-2 my-1 group transition-transform scale-95 active:scale-90" href="kanban.html">
+<span class="material-symbols-outlined mr-3">assignment</span>
+<span class="font-body text-body-md tracking-wide">Tasks</span>
+</a>
+<a class="flex items-center px-6 py-3 bg-secondary text-on-secondary rounded-lg mx-2 my-1 group transition-transform scale-95 active:scale-90" href="audit_log.html">
+<span class="material-symbols-outlined mr-3">history</span>
+<span class="font-body text-body-md tracking-wide">Audit Log</span>
+</a>
+</nav>
+<div class="px-4 mb-6">
+<button class="w-full bg-secondary-container text-on-secondary-container py-3 rounded-xl label-font font-medium uppercase tracking-wider flex items-center justify-center gap-2 hover:opacity-90 transition-all">
+<span class="material-symbols-outlined">add</span>
+                New Assessment
+            </button>
+</div>
+<div class="mt-auto border-t border-surface-variant/10 pt-4">
+<a class="flex items-center px-6 py-3 text-surface-variant hover:text-white mx-2 my-1 group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined mr-3">settings</span>
+<span class="font-body text-body-md tracking-wide">Settings</span>
+</a>
+<button class="flex items-center px-6 py-3 text-surface-variant hover:text-white mx-2 my-1 group w-full text-left transition-transform scale-95 active:scale-90" onclick="openLogoutModal()">
+<span class="material-symbols-outlined mr-3 text-error">logout</span>
+<span class="font-body text-body-md tracking-wide">Logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 min-h-screen px-12 py-10 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<nav class="flex items-center gap-2 text-primary/60 label-font text-xs uppercase tracking-[0.2em] mb-2">
+<span>Admin</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary font-bold">Audit</span>
+</nav>
+<h1 class="text-5xl font-display tracking-tight text-primary">Audit Log</h1>
+<p class="text-on-surface-variant mt-2 font-body italic text-lg">A chronicle of system intelligence and human oversight.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 rounded-full border border-outline-variant text-primary label-font text-sm uppercase tracking-widest hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">download</span>
+                    Export CSV
+                </button>
+<button class="px-6 py-2.5 rounded-full border border-outline-variant text-primary label-font text-sm uppercase tracking-widest hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">picture_as_pdf</span>
+                    Export PDF
+                </button>
+</div>
+</header>
+<!-- Search and Filter Bar -->
+<div class="mb-8 flex justify-between items-center bg-surface-container-lowest p-2 rounded-2xl shadow-sm border border-surface-variant/50">
+<div class="relative flex-1 max-w-md ml-2">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-transparent border-none focus:ring-0 font-body text-lg placeholder:text-primary/30" placeholder="Search by Agent, Action or ID..." type="text">
+</div>
+<div class="flex items-center gap-2 px-2">
+<button class="p-2.5 text-primary/60 hover:text-secondary hover:bg-surface-container transition-all rounded-lg">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<button class="flex items-center gap-2 px-4 py-2 text-primary/80 label-font text-sm">
+                    Today
+                    <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Audit Table Section -->
+<div class="tonal-layer rounded-3xl overflow-hidden backdrop-blur-sm">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-variant/50">
+<th class="px-6 py-5 label-font text-xs uppercase tracking-[0.2em] text-primary/60 font-bold">Timestamp</th>
+<th class="px-6 py-5 label-font text-xs uppercase tracking-[0.2em] text-primary/60 font-bold">Agent</th>
+<th class="px-6 py-5 label-font text-xs uppercase tracking-[0.2em] text-primary/60 font-bold">Action</th>
+<th class="px-6 py-5 label-font text-xs uppercase tracking-[0.2em] text-primary/60 font-bold">Regulation ID</th>
+<th class="px-6 py-5 label-font text-xs uppercase tracking-[0.2em] text-primary/60 font-bold">Department</th>
+<th class="px-6 py-5 label-font text-xs uppercase tracking-[0.2em] text-primary/60 font-bold">Outcome</th>
+</tr>
+</thead>
+<tbody class="font-body text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 24, 2023</span>
+<span class="text-sm opacity-60">14:22:15</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">JD</div>
+<span>Julianna Davies</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Compliance Review</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">GDPR-2024-V2</span></td>
+<td class="px-6 py-4 text-primary/70">Legal Affairs</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-green-50 text-green-700 border border-green-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Success
+                                </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 24, 2023</span>
+<span class="text-sm opacity-60">13:05:42</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-sm font-bold">RA</div>
+<span>RakshakBot AI</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Automated Scan</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">HIPAA-SEC-9</span></td>
+<td class="px-6 py-4 text-primary/70">IT Security</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-red-50 text-red-700 border border-red-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                    Failed
+                                </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 24, 2023</span>
+<span class="text-sm opacity-60">11:12:01</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary text-sm font-bold">MK</div>
+<span>Marcus Knight</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Risk Assessment</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">ISO-27001-C</span></td>
+<td class="px-6 py-4 text-primary/70">Risk Management</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-amber-50 text-amber-700 border border-amber-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                    Pending
+                                </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 24, 2023</span>
+<span class="text-sm opacity-60">09:30:55</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">EL</div>
+<span>Elena Lopez</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Policy Update</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">CCPA-MOD-1</span></td>
+<td class="px-6 py-4 text-primary/70">Governance</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-green-50 text-green-700 border border-green-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Success
+                                </span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 23, 2023</span>
+<span class="text-sm opacity-60">17:45:10</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-sm font-bold">RA</div>
+<span>RakshakBot AI</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Signature Validation</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">EIDAS-CERT</span></td>
+<td class="px-6 py-4 text-primary/70">Compliance</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-green-50 text-green-700 border border-green-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Success
+                                </span>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 23, 2023</span>
+<span class="text-sm opacity-60">15:20:00</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">SW</div>
+<span>Simon White</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">External Audit</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">SOC2-TYPEII</span></td>
+<td class="px-6 py-4 text-primary/70">Audit Team</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-amber-50 text-amber-700 border border-amber-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                                    Pending
+                                </span>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 23, 2023</span>
+<span class="text-sm opacity-60">12:10:44</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">JD</div>
+<span>Julianna Davies</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">User Access Review</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">IAM-POLICY-X</span></td>
+<td class="px-6 py-4 text-primary/70">Security</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-green-50 text-green-700 border border-green-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Success
+                                </span>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 23, 2023</span>
+<span class="text-sm opacity-60">10:05:12</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-sm font-bold">RA</div>
+<span>RakshakBot AI</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Data Mapping</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">MAP-DP-01</span></td>
+<td class="px-6 py-4 text-primary/70">Data Privacy</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-red-50 text-red-700 border border-red-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                    Failed
+                                </span>
+</td>
+</tr>
+<!-- Row 9 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-bold">Oct 22, 2023</span>
+<span class="text-sm opacity-60">16:40:30</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">MK</div>
+<span>Marcus Knight</span>
+</div>
+</td>
+<td class="px-6 py-4 italic">Incident Response</td>
+<td class="px-6 py-4"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">CERT-2023-A</span></td>
+<td class="px-6 py-4 text-primary/70">Operations</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-green-50 text-green-700 border border-green-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Success
+                                </span>
+</td>
+</tr>
+<!-- Row 10 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4 border-none">
+<div class="flex flex-col">
+<span class="font-bold">Oct 22, 2023</span>
+<span class="text-sm opacity-60">11:15:15</span>
+</div>
+</td>
+<td class="px-6 py-4 border-none">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary text-sm font-bold">EL</div>
+<span>Elena Lopez</span>
+</div>
+</td>
+<td class="px-6 py-4 border-none italic">Asset Tagging</td>
+<td class="px-6 py-4 border-none"><span class="label-font text-xs bg-surface-variant px-2 py-1 rounded">INV-SEC-44</span></td>
+<td class="px-6 py-4 border-none text-primary/70">Inventory</td>
+<td class="px-6 py-4 border-none">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs label-font bg-green-50 text-green-700 border border-green-100 uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                    Success
+                                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-6 py-4 bg-surface-container-highest/50 flex justify-between items-center border-t border-surface-variant/50">
+<p class="label-font text-xs uppercase tracking-widest text-primary/50">Showing 10 of 1,284 entries</p>
+<div class="flex items-center gap-4">
+<button class="p-1 rounded hover:bg-surface-container transition-colors disabled:opacity-20" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="label-font text-sm font-bold">Page 1 of 129</span>
+<button class="p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Logout Confirmation Modal -->
+<div class="fixed inset-0 z-[60] hidden flex items-center justify-center px-4" id="logoutModal">
+<div class="absolute inset-0 bg-inverse-surface/60 backdrop-blur-sm" onclick="closeLogoutModal()"></div>
+<div class="bg-surface rounded-3xl w-full max-w-md relative z-10 overflow-hidden shadow-2xl border border-surface-variant">
+<div class="p-1 bg-gradient-to-r from-secondary/30 to-tertiary/30"></div>
+<div class="p-8 text-center">
+<div class="w-16 h-16 bg-error/10 text-error rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">logout</span>
+</div>
+<h3 class="text-3xl font-display text-primary mb-3">Confirm Departure</h3>
+<p class="font-body text-on-surface-variant mb-8 text-lg italic">Are you sure you wish to end your current session with RakshakAI?</p>
+<div class="flex flex-col gap-3">
+<button class="w-full py-4 bg-error text-white rounded-xl label-font font-bold uppercase tracking-widest hover:opacity-90 transition-all flex items-center justify-center gap-2" onclick="logoutAction()">
+<span class="material-symbols-outlined">logout</span>
+                        Log Out Now
+                    </button>
+<button class="w-full py-4 bg-surface-container text-primary rounded-xl label-font font-bold uppercase tracking-widest hover:bg-surface-container-high transition-all" onclick="closeLogoutModal()">
+                        Remain Logged In
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="fixed top-0 right-0 -z-10 opacity-10 pointer-events-none">
+<img class="w-[800px] h-[800px] object-cover mix-blend-multiply" data-alt="A sophisticated digital artwork featuring layered ethereal vellum textures and faint serif typographic elements floating in a sea of cream and rose hues. The composition is reminiscent of a high-end editorial layout with dramatic negative space and soft ambient lighting that creates a feeling of intellectual calm and premium digital luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVmqz4LY61uvT8POrUhAbnYFUKYSWdUROM1bZP-1uUR1lkCb8D279laoj-ZFMgYj12wZkdoPlhqggTCKSjIx0CYDprLvMoST3xStQ9QjOmYqTQkZ8jgUm-CWOWHJaZIzZT-TBaOnXzNR7xN09oGWI4AUXWEYCEYwAIBb0MN9cSdMfV9Lxw8EyuPcnY4Tc0TVQFZ5nEnwMO1OxWJLovu5d6IqLgZVHeTYh8gmONLQoyD9jiQoj7nofB1uDhTqu8viagNDOrNtYuX0fc">
+</div>
+<script>
+        function openLogoutModal() {
+            const modal = document.getElementById('logoutModal');
+            modal.classList.remove('hidden');
+            modal.querySelector('div:last-child').classList.add('animate-in', 'fade-in', 'zoom-in', 'duration-300');
+        }
+
+        function closeLogoutModal() {
+            const modal = document.getElementById('logoutModal');
+            modal.classList.add('hidden');
+        }
+
+        function logoutAction() {
+            // Simulated logout
+            document.body.style.opacity = '0.5';
+            document.body.style.pointerEvents = 'none';
+            setTimeout(() => {
+                location.href = 'index.html';
+            }, 1000);
+        }
+
+        // Add subtle animation to table rows
+        document.querySelectorAll('tbody tr').forEach((row, index) => {
+            row.style.opacity = '0';
+            row.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+                row.style.transition = 'all 0.5s ease';
+                row.style.opacity = '1';
+                row.style.transform = 'translateY(0)';
+            }, index * 50);
+        });
+    </script>
+</body></html>

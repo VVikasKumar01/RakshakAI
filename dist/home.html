@@ -1,0 +1,222 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>RakshakAI - Regulatory Intelligence Home</title>
+<!-- Google Fonts: Caudex (Headline), Forum (Body), Oswald (Label) -->
+<link href="https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&amp;family=Forum&amp;family=Oswald:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="/tailwind-config.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="stylesheet" crossorigin href="/assets/global-CVBCfwqe.css">
+</head>
+<body class="bg-background text-on-surface min-h-screen">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-40 bg-surface dark:bg-surface-dim border-b border-surface-variant dark:border-outline-variant transition-all duration-300 ease-in-out flex justify-between items-center h-16 px-6 w-full">
+<div class="flex items-center gap-8">
+<span class="font-headline text-2xl font-bold text-primary dark:text-primary-fixed">RakshakAI</span>
+<div class="hidden md:flex items-center gap-6 font-display text-headline-sm tracking-tight">
+<a class="text-secondary border-b-2 border-secondary pb-1" href="home.html">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="regulations.html">Regulations</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="kanban.html">Tasks</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="audit_log.html">Audit Log</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container text-xs cursor-pointer overflow-hidden" onclick="toggleModal('logout-modal')">
+<img alt="User Profile" class="h-full w-full object-cover" data-alt="A professional headshot of a middle-aged man with a warm, confident expression. He is wearing a minimalist, high-quality linen shirt in an off-white cream color. The background is a soft-focus studio setting with warm, ethereal lighting that matches a premium, editorial aesthetic. The lighting is diffused and gentle, highlighting subtle textures without harsh shadows, maintaining a serene and intellectual atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVpabUsLWqkhg00jVfegd6jqlhUY52Hylb4p5KLo-YjL_qgEdE4RFhTVnM1fk3WC-KlBOHROHllHjFQFQvzMQLGkLOw8p2AbZ18q6dUfvVR093xm1FHAf66iMgPuIy83WGiTMRFRSv7xaIsbSAyzNqDN6QyvYrDaT0qt1vjU0CWSxuQyC1M1gkHn48gG0MjCwMDgzXaLtgDYwkYkQ6dQuggIIi6WzUcVtdxdIDrGvuQuWT0-WpXiKDuMnJEXCgmyIHFdDGQrxbNvi3">
+</div>
+</div>
+</nav>
+<!-- Main Content Grid -->
+<main class="pt-24 pb-12 px-6 max-w-7xl mx-auto grid grid-cols-12 gap-8">
+<!-- Hero Section -->
+<header class="col-span-12 mb-4">
+<h1 class="serif-headline text-5xl text-primary font-bold mb-2">Welcome back, Arjun</h1>
+<p class="text-on-surface-variant text-lg tracking-widest label-text opacity-70" id="current-date">October 24, 2023</p>
+</header>
+<!-- Metric Cards -->
+<div class="col-span-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center transition-transform hover:scale-[1.02]">
+<span class="text-on-surface-variant label-text tracking-widest text-xs mb-2">NEW CIRCULARS TODAY</span>
+<span class="serif-headline text-4xl text-secondary font-bold">7</span>
+<div class="mt-4 w-12 h-1 bg-secondary/20 rounded-full"></div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center transition-transform hover:scale-[1.02]">
+<span class="text-on-surface-variant label-text tracking-widest text-xs mb-2">MAPS GENERATED</span>
+<span class="serif-headline text-4xl text-primary font-bold">43</span>
+<div class="mt-4 w-12 h-1 bg-primary/20 rounded-full"></div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center transition-transform hover:scale-[1.02]">
+<span class="text-on-surface-variant label-text tracking-widest text-xs mb-2">PENDING TASKS</span>
+<span class="serif-headline text-4xl text-tertiary font-bold">12</span>
+<div class="mt-4 w-12 h-1 bg-tertiary/20 rounded-full"></div>
+</div>
+<!-- Card 4 -->
+<div class="glass-card p-6 rounded-xl flex flex-col items-center justify-center text-center transition-transform hover:scale-[1.02]">
+<span class="text-on-surface-variant label-text tracking-widest text-xs mb-2">OVERDUE ITEMS</span>
+<span class="serif-headline text-4xl text-error font-bold">3</span>
+<div class="mt-4 w-12 h-1 bg-error/20 rounded-full"></div>
+</div>
+</div>
+<!-- Recent Activity Feed (Bento-style asymmetric layout) -->
+<section class="col-span-12 lg:col-span-8">
+<div class="flex items-center justify-between mb-6">
+<h2 class="serif-headline text-2xl text-primary font-semibold">Regulatory Intelligence Feed</h2>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary transition-colors">filter_list</span>
+</div>
+<div class="space-y-4">
+<!-- Activity 1 -->
+<div class="glass-card p-5 rounded-xl flex gap-4 items-start transition-all hover:bg-white/80">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">smart_toy</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface mb-1">Agent 1 detected new <span class="font-bold text-primary">RBI circular</span> regarding digital lending norms.</p>
+<span class="label-text text-[10px] tracking-widest text-outline uppercase">10 min ago</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer">chevron_right</span>
+</div>
+<!-- Activity 2 -->
+<div class="glass-card p-5 rounded-xl flex gap-4 items-start transition-all hover:bg-white/80">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary">analytics</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface mb-1">Agent 2 generated <span class="font-bold text-primary">6 MAPs</span> from recent SEBI asset management update.</p>
+<span class="label-text text-[10px] tracking-widest text-outline uppercase">25 min ago</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer">chevron_right</span>
+</div>
+<!-- Activity 3 -->
+<div class="glass-card p-5 rounded-xl flex gap-4 items-start transition-all hover:bg-white/80">
+<div class="p-2 bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary">assignment_turned_in</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface mb-1">Agent 3 assigned <span class="font-bold text-primary">4 tasks</span> to IT &amp; Cybersecurity teams.</p>
+<span class="label-text text-[10px] tracking-widest text-outline uppercase">1 hr ago</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer">chevron_right</span>
+</div>
+<!-- Activity 4 -->
+<div class="glass-card p-5 rounded-xl flex gap-4 items-start transition-all hover:bg-white/80">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface mb-1">Agent 4 validated <span class="font-bold text-primary">KYC task completion</span> for Q3 compliance report.</p>
+<span class="label-text text-[10px] tracking-widest text-outline uppercase">2 hr ago</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer">chevron_right</span>
+</div>
+<!-- Activity 5 -->
+<div class="glass-card p-5 rounded-xl flex gap-4 items-start transition-all hover:bg-white/80">
+<div class="p-2 bg-surface-variant rounded-lg">
+<span class="material-symbols-outlined text-primary">history_edu</span>
+</div>
+<div class="flex-1">
+<p class="text-on-surface mb-1">New <span class="font-bold text-primary">Basel guideline</span> ingested and classified as "High Priority".</p>
+<span class="label-text text-[10px] tracking-widest text-outline uppercase">3 hr ago</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant cursor-pointer">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Quick Actions Sidebar -->
+<aside class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<div>
+<h2 class="serif-headline text-2xl text-primary font-semibold mb-6">Quick Actions</h2>
+<div class="flex flex-col gap-4">
+<button class="w-full flex items-center justify-between p-5 bg-secondary text-on-secondary rounded-xl shadow-sm hover:opacity-90 transition-all active:scale-95 group">
+<span class="label-text font-medium tracking-wide">View Regulations</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">gavel</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 bg-primary text-on-primary rounded-xl shadow-sm hover:opacity-90 transition-all active:scale-95 group">
+<span class="label-text font-medium tracking-wide">My Tasks</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">assignment</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 bg-white border border-outline-variant text-primary rounded-xl shadow-sm hover:bg-surface-container transition-all active:scale-95 group">
+<span class="label-text font-medium tracking-wide">Download Audit Report</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+<!-- Visual Decorative Card -->
+<div class="relative rounded-xl overflow-hidden h-64 shadow-xl">
+<img alt="Abstract Art" class="w-full h-full object-cover" data-alt="A macro photograph of aged paper with elegant calligraphy strokes in dark sepia ink. The lighting is low-key and dramatic, with a warm golden glow catching the texture of the vellum. The background is a soft-focus composition of library shelves with old leather-bound books. The aesthetic is sophisticated, quiet, and deeply intellectual, echoing the high-end editorial style of a luxury digital publication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLOx_WTPMwDOUwTwiOzB6p-60VvuHAswYcftOGEb2P8bHRCSQwy3FVPDYEDAL5EkD60V9-ciIqyb1kc2xbV_PYTZvB1c5ql4C0Q2E0iG2E4VzhBqvTNeTUWVntk0wwM6vpsdHoYlW1Yb8zN6FKxV4EIZuSEEXWDPV3FDTcBL1IrbzS5vETBJUWlr8QX9s1GnbS_ZuaHVPzzVUlfvjF8MIcsKAARX-G5TaiOzRsOhk6gG7nV2oYeDvcUAYuBPTGahaGLTglBTUshFUM">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-6">
+<p class="text-white serif-headline italic text-lg leading-snug">"Clarity is the first step toward compliance."</p>
+<p class="text-white/70 label-text text-[10px] tracking-widest mt-2">RAKSHAK INTELLIGENCE INSIGHTS</p>
+</div>
+</div>
+</aside>
+</main>
+<!-- Logout Confirmation Modal -->
+<div class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4" id="logout-modal">
+<!-- Backdrop -->
+<div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" onclick="toggleModal('logout-modal')"></div>
+<!-- Modal Content -->
+<div class="relative glass-card bg-surface w-full max-w-md rounded-2xl shadow-2xl p-8 transform transition-all animate-in fade-in zoom-in duration-300">
+<div class="flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-error/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-error text-4xl">logout</span>
+</div>
+<h3 class="serif-headline text-3xl text-primary font-bold mb-4">Confirm Logout</h3>
+<p class="text-on-surface-variant font-body text-lg mb-8">Are you sure you want to end your current session? All unsaved changes in MAP generation will be lost.</p>
+<div class="grid grid-cols-2 gap-4 w-full">
+<button class="p-4 border border-outline-variant text-on-surface label-text font-semibold rounded-xl hover:bg-surface-container transition-colors" onclick="toggleModal('logout-modal')">
+                        Stay Signed In
+                    </button>
+<button class="p-4 bg-error text-on-error label-text font-semibold rounded-xl hover:opacity-90 shadow-lg shadow-error/20 transition-all active:scale-95" onclick="location.href='index.html'">
+                        Yes, Log Out
+                    </button>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // Set today's date
+        const dateEl = document.getElementById('current-date');
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        dateEl.textContent = new Date().toLocaleDateString('en-US', options);
+
+        // Modal toggle function
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            } else {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add subtle mouse parallax to glass cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const xPercent = (x / rect.width - 0.5) * 4;
+                const yPercent = (y / rect.height - 0.5) * 4;
+                
+                card.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) scale(1.01)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+            });
+        });
+    </script>
+</body></html>
